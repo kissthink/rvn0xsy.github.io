@@ -1,0 +1,37 @@
+baseurl:
+title: 倾旋的博客
+email: rvn0xsy@gmail.com
+subtitle: 倾旋的博客
+author: Rvn0xsy
+simple_search: http://google.com/search
+description: 这个博客主要用来记录自己技术生涯中短小的收获和知识的备忘，还有就是一些做安全服务工作中的感受。方向可能会在不断改变：渗透测试、CTF、高效生活、应急响应、安全建设、读后感、代码审计、漏洞复现、运维杂项等等…
+name: Rvn0xsy
+baseurl: ""
+markdown: kramdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+permalink: /articles/:short_year/:title
+timezone: America/New_York
+paginate_path: "page:num"
+plugins:
+  - jekyll-sitemap
+twitter_username: Rvn0xsy
+github_username: Rvn0xsy
+excerpt_separator: <!--more-->
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'UploadToGithub.Rakefile', 'README.md']
+post:
+  template: _post.txt
+  extension: md
+page:
+  template: _page.txt
+  extension: md
+editor: gvim
+git:
+  branch: master
+# transfer:
+#   command: rsync
+#   settings: -av
+#   source: _site/
+#   destination: ~/Git/clayh53.github.com/
+paginate: 5
+kramdown:
+  input: GFM

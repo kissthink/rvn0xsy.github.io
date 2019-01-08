@@ -1,0 +1,6 @@
+_site/
+.vscode/
+*.swp
+pkg/
+test/
+.idea/
