@@ -4,3 +4,6 @@ _site/
 pkg/
 test/
 .idea/
+Gemfile.lock
+.sass-cache/
+.DS_Store

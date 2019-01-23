@@ -1,193 +1,98 @@
-# tufte-jekyll theme
+## lanyon-plus
+
+Based on Jekyll theme: [Lanyon](http://lanyon.getpoole.com) by [**Mark Otto**](https://github.com/mdo)
+
+* add-ons by [Samir Amin](http://sbamin.com)
+* [Site features](http://sbamin.com/disclosure#i-classfa-fa-thumbs-o-up-credits-for-site-featuresi) | [Example contents](https://dyndna.github.io/lanyon-plus/blog/2013/01/01/example-content/)
+* License: Open sourced under the [MIT license](https://sbamin.com/disclosure/#theme-major-credit--license).
+
+[![Build Status](https://travis-ci.org/dyndna/lanyon-plus.svg?branch=master)](https://travis-ci.org/dyndna/lanyon-plus)
+
+[Demo](http://dyndna.github.io/lanyon-plus) | [Download v1.1.1](https://github.com/dyndna/lanyon-plus/releases/tag/v1.1.1)
+
+### Required edits:
+
+#### _config.yml
+
+*   Edit lines where text string `foo` is present with relevant information. 
+*   Add relevant author and owner information
+    *   For proper sidebar, meta info below post title, and footer bar, add at least twitter, google plus info under `owner` and `sidebar` section.
+    *   Uncomment and add relevant user names/keys to enable features, e.g., google analytics, disqus comments, twitter widget, google custom search.
+
+#### CNAME
+
+*   Read [Using a custom domain with GitHub Pages](https://help.github.com/articles/using-a-custom-domain-with-github-pages/) for set-up details.
+*   If you are hosting website on domain other than `github.io`, rename `CNAME.sample` file to `CNAME`, and add your custom domain name, e.g., `example.com` (only one domain is allowed), otherwise remove `CNAME` file if you want to host at default `github.io`. 
+*   If you are hosting website on `github.io`, replace `example.com` with `https://<github-username>.github.io/<repository_name>` (for project site) or `https://<github-username>.github.io` (for user site) under `site.url` and `site.urlimg` in `_config.yml` and `_prose.yml` file.
+
+#### .travis.yml
+*   See more at [https://travis-ci.org/getting_started](https://travis-ci.org/getting_started)
+
+#### _prose.yml
+
+*   [https://github.com/prose/prose/wiki/Getting-Started](https://github.com/prose/prose/wiki/Getting-Started)
+*   Edit `example.com` with your domain name.
+*   You may edit names for custom categories.
+
+#### robots.txt
+
+* replace `example.com` with your valid url.
+* Edit search engine inclusion/exclusion if desired.
+
+#### page specific edits
+
+*   `_data/socialmedia.html`
+    *   Replace user `foo` with appropriate username
+
+*   `_includes/`
+    *   Check if file paths for appropriate urls have valid css files, scripts, icons, and images in `head.html` and `head_minimal.html`, else comment html tags which are not being used.
+    *   Also, check if variables (twitter, google plus, linkedin, google analytics key and disqus username, etc.) are specified in `_config.yml` located under root path.
+    *   You may edit `meta_info.html`, `footer.html` and similar include files to add/remove elements in page meta bar, footer, etc.
+    *   For publications page, `mypubs.html` and `myaoi.html` are trimmed outputs from [zot_bib_web](https://github.com/davidswelt/zot_bib_web). Github pages can not dynamically build these pages. Alternately, you may export `bib` format for publications under `/files/` directory which can be parsed dynamically using [bibbase.org](http://bibbase.org)
+    *   `_includes/footer.html`: Edit copyright information as needed.
+*   `_layouts`
+    *   To add/remove/reorder page/post contents, edit `default.html` plus `page.html` or `post.html`.
+*   `_posts`
+    *   Live blog posts goes here with markdown formatted post. File name format must have following date-title format `yyyy-mm-dd-title.md` for jekyll to render blog post correctly. 
+    *   YAML sample header shows all available options. Minimal required elements are: layout, title and date. Date tag overrides date given in post file name.
+*   `blog/index.html`
+    *   Edit blog title and description.
+*   `images/`
+    *   Under `icons` directory, keep appropriate sized favicons and thumbnails as specified in `_includes/head.html` and `_includes/head_minimal.html`
+    *   Also, keep `favicon.png` and `favicon.ico` in root directory.
+    *   Final, `images/icons/` should have following images with exact filenames and image size as specified in respective filenames. These images can be generated using online *favicon generator*. Replace `foo` with your site title or other name if desired.
+
+~~~
+example.com/images/icons/apple-touch-icon-precomposed.png
+example.com/images/icons/apple-touch-icon-72x72-precomposed.png
+example.com/images/icons/apple-touch-icon-114x114-precomposed.png
+example.com/images/icons/apple-touch-icon-144x144-precomposed.png
+example.com/images/icons/apple-touch-icon-180x180.png
+example.com/images/icons/android-icon-192x192.png
+~~~
+
+*   `pages/about.md`
+    *   YAML variable `imagefeature` shoud have image path relative to `images/` directory, i.e., `foo.png` will link to `example.com/images/foo.png`
+    *   Specify `site.owner.avatar` and `site.owner.twitter` along with other variables in `_config.yml`
+*   `syspages/`:
+    *   Edit page title and description in YAML front matter.
+    *   For web search to work, specify [Google Custom Search Engine](https://cse.google.com) API key for `google_search` variable.
+    *   Tag generation is experimental and dynamic size for tag box may need to be adjusted if you have more than 100 posts with one or two frequently occurring tags. 
+    *   All `{% for ... %}...{% endfor %}` loop operations will increase site build time, and remove such features (tags, meta info, related posts, etc.) under `_includes`, `_layouts` and `syspages` if required.
+*   `pages/contact.md`
+    *   Edit page title and description.
+    *   Edit address, driving direction url, etc.
+*   `pages/cv.md`
+    *   Edit `_config.yml` to add twitter, google plus, linkedin, google scholar, ORCID profile info under owner heading.   
+    *   Add pdf at `{{ site.url }}/cv/cv.pdf` 
+*   `pages/publications.md`
+    *   Add your publications at `/files/mypubs.bib` and `_includes/mypubs.html`. See above under `_includes` for more.
+*   `pages/disclosure.md`
+    *   Appreciated if you keep relevant credits in disclosure page.
+*   `humans.txt`
+    *   Replace `foo` with your name.
+*   `rfeed.xml`
+    *   Not required unless you are cross-posting about R language on blog aggregation site(s).
+
+END
 
-The *Tufte-Jekyll* blog theme is based on the github repository by Edward Tufte [here](https://github.com/edwardtufte/tufte-css), which was orginally created by Dave Leipmann, but is now labeled under Edward Tufte's moniker. I borrowed freely from the Tufte-CSS repo and have transformed many of the typographic and page-structural features into a set of custom Liquid tags that make creating content using this style much easier than writing straight HTML. Essentially, if you know markdown, and mix in a few custom Liquid tags, you can be creating a website with this document style in short order.
-
-## Demo
-
-A sample site with self-documenting content is available [here](http://clayh53.github.io/tufte-jekyll/) on github pages.
-
-## Installation
-
-I'm not going to go into great detail here. I am just going to assume that anyone interested in either Jekyll, Edward Tufte's work or Github has some basic skills. I created this with Ruby 2.2.0 and Jekyll 2.5.3. There is absolutely nothing exotic going on here, so you can probably make any recent version of Jekyll work with this setup.
-
-So copy, pull, download a zipfile or whatever and fire it up.
-
-```
-cd ~/thatPlaceYouPutIt/tufte-jekyll
-jekyll build
-jekyll serve -w
-```
-
-And then point your browser at localhost:4000/tufte-jekyll
-
-You can also use `jekyll serve -w --baseurl ''` to remove `/tufte-jekyll` from the url and serve your site directly from localhost:4000. This only affects your local preview. See [Setting your baseurl correctly](#setting-your-baseurl-correctly) for more details.
-
-## Configuration
-
-### Jekyll site building options
-
-I have created a very simple site options file in the ```_data``` directory that contains two settings currently. The file in the github repo looks like this:
-```
-mathjax: true
-lato_font_load: true
-```
-Removing either 'true' value will prevent the jekyll site building process from adding links to either the Mathjax library or the Google Fonts Lato font as a fallback for the Gill Sans. Set these values to blank if you want to really streamline your page loading time.
-
-### SASS
-
-I am using Sass to create the css file used by this theme. If you would like to change things like fonts, text colors, background colors and so forth, edit the ```_scss/_settings.scss``` file. This file gets loaded first when Jekyll constructs the master CSS file from the tufte.scss SASS file, and contains SASS variables that influence the appearance of the site. The one variable that may be of interest to some is the ```$link-style``` variable, which can be set to either ```underline``` or ```color```. This will determine if your links are styled using the ```$contrast-color``` variable with no underlining, or whether they are styled using light underlining as seen on the [*tufte-css*](https://github.com/edwardtufte/tufte-css) repo.
-
-### Social icons
-
-You can edit the ```_data/social.yml``` file and put in your own information for the footer links
-
-### Silly-ass badge in the upper left
-
-In the ```assets/img``` directory is a file called ```badge_1.png```. This file's parent is ```badge_1.psd``` and is an editable photoshop file with layers for the letters comprising the initials. Change them to suit your fancy. Or just substitute another badge in its place. You can edit the ```_includes/header.html``` file and change the file that it points too. Find your favorite Tufte emoji and fly your freak flag proudly.
-
-## Some things about the things
-
-I needed to create several custom Liquid tags to wrap content in the right kind of tags. You will create your posts in the normal way in the ```_posts``` directory, and then edit them with Github-Flavored Markdown. To all that GFM goodness, you can use the following custom Liquid tags in your content area.
-
-Note that these tags *have been altered* from Version 1 of this theme to accommodate some responsive features, namely the ability to reveal hidden sidenotes, margin notes and margin figures by tapping either a superscript or a symbol on small screens. This requires you to add a parameter to the tag that is a unique *ID* for each tag instance on the page. What the id is called is not important, but it is important that it be unique for each individual element on the page. I would recommend in the interest of sanity to give names that are descriptive, like ```'sn-id-1'``` or ```'mf-id-rhino'```.
-
-### Notes about quotes in Liquid tags
-
-The custom Liquid tags are designed to simplify writing content and displaying it with the *tufte-css* look. Here are a few notes on using quotes inside the tags.
-
-* Liquid tags work best when you use double quotes to surround the tag parameters, as you'll see in all the examples below.
-
-* You can use single quotes and apostrophes in the text inside tag parameters. Liquid will automatically process them correctly. For example: `{% newthought "I'm so smart!" %}` will render as `I'm so smart!`
-
-* To use a double quote in the text inside a tag parameter, escape the double quote by placing a backslash directly in front of it, for example: `{% newthought "\"I'm so smart!\", she thought." %}` will render as `"I'm so smart!", she thought.`
-
-* You can use HTML inside of a tag parameter. (However, you cannot use Markdown inside a tag parameter) You can use either single quotes, or escaped double quotes in the HTML. For example, both of the following tags will work:
-
-```
-{% newthought "Example website: <a href='http://example.com'>example label</a>" %}
-```
-```
-{% newthought "Example website: <a href=\"http://example.com\">example label</a>" %}
-```
-
-The [demo site's Edge Cases entry](http://clayh53.github.io/tufte-jekyll/articles/15/Edge-Cases) has an example toward the bottom illustrating HTML inside of a tag parameter.
-
-### New thought
-
-This tag will render its contents in small caps. Useful at the beginning of new sections:
-
-```
-{% newthought "This will be rendered in small caps" %} blah blah
-```
-
-### Sidenote
-
-This tag inserts a *sidenote* in the content, which is like a footnote, only its in the spacious right-hand column. It is automatically numbered, starting over on each page. Just put it in the content like you would insert a footnote like so:
-
-```
-blah lorem blah{% sidenote "sidenote-id" "This is a random sidenote" %} blah blah
-```
-And it will add the html spans and superscripts. On smaller screens, tapping on the number will reveal the sidenote!
-
-The `full-width` page layout will not display side notes. (It's a full-width page and has no margin)
-
-### Margin note
-
-This tag is essentially the same as a sidenote, but heh, no number. Like this:
-
-```
-lorem nobeer toasty critters{% marginnote "margin-note-id" "Random thought when drinking" %} continue train of thought
-```
-On smaller screens, tapping on the <span>&#8853;</span> symbol will open up the margin note.
-
-The `full-width` page layout will not display margin notes. (It's a full-width page and has no margin)
-
-### Full width image
-
-This tag inserts an image that spans both the main content column and the side column:
-
-```
-blah blah
-{% fullwidth "assets/img/rhino.png" "A caption for the image" %}
-blah
-```
-
-or
-
-```
-blah blah
-{% fullwidth "http://example.com/image.jpg" "A caption for the image" %}
-blah
-```
-
-Note the absence of a leading slash in the image url when using relative file paths. (This is incorrect: `/assets/img/rhino.png`)
-
-Also note that fullwidth images need to be included *on their own line* in order for the captions to work correctly.
-
-### Main column image
-
-This tag inserts an image that is confined to the main content column:
-
-```
-blah blah
-{% maincolumn "assets/img/rhino.png" "This is the caption" %}
-blah
-```
-
-or
-
-```
-blah blah
-{% maincolumn "http://example.com/image.jpg" "This is the caption" %}
-blah
-```
-
-No need for an ID in this tag because it doesn't have any doohickies that open and close on narrow screens. Again note the absence of the leading slash in the image url when using relative file paths. (This is incorrect: `/assets/img/rhino.png`)
-
-And just like fullwidth images, main column images need to be included on their own line in order for the captions to work correctly.
-
-### Margin figure
-
-This tag inserts and image in the side column area. Note that an id needs to be specified:
-
-```
-blah blah {% marginfigure "margin-figure-id" "assets/img/rhino.png" "This is the caption" %} blah
-```
-
-or
-
-```
-blah blah {% marginfigure "margin-figure-id" "http://example.com/image.jpg" "This is the caption" %} blah
-```
-
-This needs an ID parameter so that it can be clicked and opened on small screens. Again note the absence of the leading slash in the image url when using relative file paths. (This is incorrect: `/assets/img/rhino.png`)
-
-The `full-width` page layout will not display margin figures. (It's a full-width page and has no margin)
-
-### Mathjax
-
-Totally used this functionality from a [gist by Jessy Cowan-Sharpe](https://gist.github.com/jessykate/834610) to make working with Mathjax expressions a little easier. Short version, wrap inline math in a tag pair thusly: ```{% m %}mathjax expression{% em %}``` and wrap bigger block level stuff with ```{% math %}mathjax expression{% endmath %}```
-
-As a side note - if you do not need the math ability, navigate to the ```_data/options.yml``` file and change the mathjax to 'false' and it will not load the mathjax javascript.
-
-### Setting your baseurl correctly
-
-In the `_config.yml` file is a setting called `baseurl`. This is used by the Jekyll engine to construct all the proper links in the static site. Right now it is set to `/tufte-jekyll` since this project is using Github Pages and you are required to set the project name as the baseurl to serve from Github Pages.
-
-Set this to your own project name if you're going to serve your site from Github Pages. Be sure to include the leading slash, and no trailing slash. For example: `/my-project-name`
-
-For a full explanation of setting your baseurl to work with Github Pages, see the [Project Page URL Structure](http://jekyllrb.com/docs/github-pages/#project-page-url-structure) section of the Jekyll documentation.
-
-To serve from anywhere else besides Github Pages, use a blank baseurl in your `_config.yml` file:
-
-```
-baseurl:
-```
-
-This is `baseurl:` with nothing after it. Not even a space.
-
-### Rakefile
-
-I have added a boilerplate Rakefile directly from the [jekyll-rake-boilerplate repo](https://github.com/gummesson/jekyll-rake-boilerplate). This saves you a small amount of time by prepending the date on a post name and populated the bare minimum of YAML front matter in the file. Please visit the link to the repo to find out how it runs. One thing to note is that there should be *no* space between the task and the opening bracket of your file name. ```rake post["Title"]``` will work while ```rake post ["Title"]``` will not.
-
-There is another rakefile (UploadtoGithub.Rakefile) included that only has one task in it - an automated upload to a *Github Pages* location of the site. This is necessary because of the plugins used by this theme. It does scary stuff like move your ```_site``` somewhere safe, delete everything, move the ```_site``` back and then do a commit to the ```gh-pages``` branch of your repository. You can read about it [here](http://blog.nitrous.io/2013/08/30/using-jekyll-plugins-on-github-pages.html). You would only need to use this if you are using Github project pages to host your site. Integration with the existing Rakefile is left as an exercise for the reader.

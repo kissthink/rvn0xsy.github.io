@@ -1,42 +1,42 @@
 ---
-layout: full-width
-title: 倾旋的博客
+layout: default
+permalink: /
+title: 主页
+description: "倾旋的博客-主页"
 ---
 
-<div class="description">{{ site.description }}</div>
-  <h1 class="content-listing-header sans">Articles</h1>
-  <ul class="content-listing ">
-    {% for post in paginator.posts limit:5 %}    
-        <li class="listing">
-          <hr class="slender">
-          <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="contrast">{{ post.title }}</h3></a>
-          <br><span class="smaller">{{ post.date | date: "%B %-d, %Y" }}</span>  <br/>
-          <div>{{ post.description }}</div> 
-        </li>
-    {% endfor %}
-  </ul>
-{% if paginator.total_pages > 1 %}
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-  {% else %}
-    <span>&laquo; Prev</span>
-  {% endif %}
 
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <em>{{ page }}</em>
-    {% elsif page == 1 %}
-      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-    {% else %}
-      <a href="/{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-    {% endif %}
+<div class="posts">
+  {% for post in site.posts  %}
+  {% unless post.category contains "featured" %}
+  <div class="post" style="margin-top:30px">
+    <h1 class="post-title">
+      <a href="{{ site.url }}{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h1>
+  <span class="post-date indexpg" itemprop="datePublished" content="{{ post.date | date: "%Y-%m-%d" }}"><i class="fa fa-calendar" title="Date published"> {{ post.date | date_to_string }}</i> <a href="{{ site.url }}/featured" title="Featured posts"><i class="fa fa-paperclip" title="Featured" class="social-icons"></i></a></span>
+ {{ post.description | markdownify | remove: '<p>' | remove: '</p>' }}{% else %}{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<a href="{{ site.url }}{{ post.url }}" title="Read more"><strong>Read more...</strong></a>
+  </div>
+  {% unless forloop.last %}<hr class="transp">{% endunless %}
+  {% endunless %}
   {% endfor %}
-
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-  {% else %}
-    <span>Next &raquo;</span>
-  {% endif %}
 </div>
-{% endif %}
+
+<!-- 
+<h3 class="post-title">
+<div class="pagination" style="margin: 0.5rem;">
+    {% if paginator.total_pages > 1 %}
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl  }}" class="pagination-item older">&laquo; Prev</a>
+      {% else %}
+        <span>&laquo; Prev</span>
+      {% endif %}
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="pagination-item newer">Next &raquo;</a>
+      {% else %}
+        <span>Next &raquo;</span>
+      {% endif %}
+    {% endif %}
+</div>
+</h3> -->

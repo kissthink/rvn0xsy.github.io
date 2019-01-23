@@ -17,6 +17,7 @@ description: "本文记录一下华为交换机Telnet远程登录的简单配置
 
 
 交换机：
+
 ```
 
 
@@ -42,8 +43,9 @@ description: "本文记录一下华为交换机Telnet远程登录的简单配置
 ```
 
 路由器：
-```
 
+
+```
 
 <Huawei>sys
 

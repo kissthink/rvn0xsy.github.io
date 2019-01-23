@@ -1,38 +1,112 @@
-baseurl:
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink: pretty
+#permalink: /blog/:year/:month/:day/:title/
+relative_permalinks: false
+encoding: utf-8
+
+# Setup
 title: 倾旋的博客
-email: rvn0xsy@gmail.com
-subtitle: 倾旋的博客
-author: Rvn0xsy
-url: https://payloads.online
-simple_search: http://google.com/search
+#tagline:             'foo's website
 description: 这个博客主要用来记录自己技术生涯中短小的收获和知识的备忘，还有就是一些做安全服务工作中的感受。方向可能会在不断改变：渗透测试、CTF、高效生活、应急响应、安全建设、读后感、代码审计、漏洞复现、运维杂项等等…
-name: Rvn0xsy
+url: http://127.0.0.1:4000
 baseurl: ""
+
+
 markdown: kramdown
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-permalink: /articles/:short_year/:title
-timezone: America/New_York
-paginate_path: "page:num"
-plugins:
-  - jekyll-sitemap
-twitter_username: Rvn0xsy
-github_username: Rvn0xsy
-excerpt_separator: <!--more-->
-exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'UploadToGithub.Rakefile', 'README.md']
-post:
-  template: _post.txt
-  extension: md
-page:
-  template: _page.txt
-  extension: md
-editor: gvim
-git:
-  branch: master
-# transfer:
-#   command: rsync
-#   settings: -av
-#   source: _site/
-#   destination: ~/Git/clayh53.github.com/
-paginate: 5
 kramdown:
-  input: GFM
+  math_engine: mathjax
+plugins_dir: [jekyll-paginate]
+paginate: 5
+paginate_path: "/page/page:num"
+excerpt_separator: <!--more-->
+default_bg: sitebg.jpg
+default_logo: sitelogo.png
+safe: false
+future: true
+
+syntax_highlighter: rouge
+input: GFM
+
+gems:
+  - github-pages
+  - font-awesome-sass
+  - jekyll-redirect-from
+  - jekyll-mentions
+  - jekyll-paginate
+
+jekyll-mentions:
+  base_url: https://twitter.com
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Gemfile", "Capfile", "Gemfile.lock", "config", "log", "Rakefile", "Rakefile.rb", "rakefile", "README.md", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "LICENSE", "vendor", "assets", "_plugins", "public/dormant"]
+
+# About/contact
+author:
+  name: Rvn0xsy
+  url:  https://twitter.com/Rvn0xsy
+  avatar: foo.png
+  #email:           
+
+# Owner/author information
+owner:
+  name: Rvn0xsy
+  avatar: foo.png
+  email: rvn0xsy@gmail.com
+  # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
+  description: 这个博客主要用来记录自己技术生涯中短小的收获和知识的备忘，还有就是一些做安全服务工作中的感受。方向可能会在不断改变：渗透测试、CTF、高效生活、应急响应、安全建设、读后感、代码审计、漏洞复现、运维杂项等等…
+  twitter: Rvn0xsy
+  facebook: 
+  github: Rvn0xsy
+  stackexchange:  
+  linkedin:
+  instagram:      
+  flickr:
+  tumblr:  
+  google_plus:    https://plus.google.com/+foo
+  # orcid and google scholar IDs are different than standard username.
+  orcid: 
+  gscholar: 
+
+## sidebar links:
+# For external links add external: true
+links:
+  - title: <i class="iconside iconm-home"></i> Home
+    url: /
+  - title: <i class="iconside iconm-user"></i> About
+    url: /about/
+  - title: <i class="fa fa-tags"></i> Tags
+    url: /tags/
+  - title: <i class="fa fa-archive"></i> Archive
+    url: /archive/
+  - title: <i class="iconside iconm-envelop"></i> Contact
+    url: /contact/
+  - title: <i class="iconside iconm-twitter"></i> Twitter
+    url: https://twitter.com/Rvn0xsy
+    external: true
+  - title: <i class="iconside iconm-folder-open"></i> 文章分类
+    url: /category
+  - title: <i class="iconside iconm-folder-open"></i> 导航
+    url: /links
+  - title: <i class="fas fa-screwdriver"></i> Cooolis
+    url: https://cooolis.payloads.online
+  - title: <i class="fas fa-tools"></i> 工具箱
+    url: /tools   
+  - title: <i class="iconside iconm-plus"></i> Windows Event Log ID Search
+    url: /tools/windows-log.html  
+  - title: <i class="iconside iconm-feed2"></i> Feed
+    url: /feed.xml
+# Google Custom Search:
+google_search: 倾旋的博客
+
+# Twitter stream widget:
+# Replace xyz123abc with your twitter widget id from https://twitter.com/settings/widgets
+twitter_widget_id: Rvn0xsy
+
+# Add disqus username for Disqus comment board:
+disqus_shortname: 
+
+
+paginate: 10
+paginate_path: "page/:num/"
