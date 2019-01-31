@@ -3,7 +3,7 @@ title: Github搜索语法-信息搜集指南
 layout: post
 date: '2019-01-31'
 categories: Windows
-permalink: "/archivers/2019-01-31/1"
+permalink: "/archivers/2019-01-31/2"
 description:  原来github搜集信息是这么玩的，很精确，总结了以下才知道！
 ---
 
