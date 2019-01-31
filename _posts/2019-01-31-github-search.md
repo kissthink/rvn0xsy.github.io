@@ -33,6 +33,8 @@ description:  原来github搜集信息是这么玩的，很精确，总结了以
 您可以使用`>`，`>=`，`<`，和`<=`搜索是大于，大于或等于，小于和小于或等于另一个值的值。
 
 ### 搜索仓库
+
+
 | Query | Example |
 | --- | --- |
 | `>_n_` | **[cats stars:>1000](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A%3E1000&type=Repositories)** 匹配关键字"cats"且star大于1000的仓库 |
@@ -42,6 +44,7 @@ description:  原来github搜集信息是这么玩的，很精确，总结了以
 | `_n_..*` | **[cats stars:10..*](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A10..*&type=Repositories)** 匹配关键字"cats"且star大于等于10的仓库 |
 | `*.._n_` | **[cats stars:*..10](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A%22*..10%22&type=Repositories)** 匹配关键字"cats"且star小于等于10的仓库 |
 | _n_.._n_ | **[cats stars:10..50](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A10..50&type=Repositories)** 匹配关键字"cats"且star大于10且小于50的仓库 |
+
 
 | Query | Example |
 | --- | --- |
@@ -58,7 +61,7 @@ description:  原来github搜集信息是这么玩的，很精确，总结了以
 * 登录的用户可以搜索所有公共存储库。
 * 除`filename`搜索外，搜索源代码时必须至少包含一个搜索词。例如，搜索`language:javascript`无效，而是这样：`amazing language:javascript`。
 * 搜索结果最多可以显示来自同一文件的两个片段，但文件中可能会有更多结果。
-* 您不能将以下通配符用作搜索查询的一部分：`. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]`。搜索将忽略这些符号。
+* 您不能将以下通配符用作搜索查询的一部分：`. , : ; / \ ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]`。搜索将忽略这些符号。
 
 #### 日期条件
 `cats pushed:<2012-07-05` 搜索在2012年07月05日前push代码，且cats作为关键字<br />`cats pushed:2016-04-30..2016-07-04` 日期区间<br />`cats created:>=2017-04-01 ` 创建时间
@@ -67,9 +70,11 @@ description:  原来github搜集信息是这么玩的，很精确，总结了以
 AND、OR、NOT
 
 #### 排除运算
+
 `cats pushed:<2012-07-05 -language:java` 搜索在2012年07月05日前push代码，且cats作为关键字，排除`java`语言仓库。
 
 #### 包含搜索
+
 `cats in:file` 搜索文件中包含cats的代码<br />`cats in:path` 搜索路径中包含cats的代码<br />`cats in:path,file` 搜索路径、文件中包含cats的代码<br />`console path:app/public language:javascript ` 搜索关键字console，且语言为javascript，在app/public下的代码
 
 #### 主体搜索
