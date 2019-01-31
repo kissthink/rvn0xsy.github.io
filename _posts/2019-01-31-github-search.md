@@ -99,7 +99,7 @@ AND、OR、NOT
 例如：`extension:``properties jdbc`
 
 
-****仅供技术研究！****
+**仅供技术研究！**
 
 ### 自动化工具
 
